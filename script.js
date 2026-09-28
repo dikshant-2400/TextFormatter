@@ -9,13 +9,16 @@ const bold = document.querySelector(".bold");
 const italic = document.querySelector(".italic");
 const underline = document.querySelector(".underline");
 
+const clear = document.querySelector(".clear");
+const copy = document.querySelector(".copy");
+
 
 inputField.addEventListener("input", () => {
-    if (inputField.value === "") {
-        outputField.textContent = "Output";
-    } else {
-        outputField.textContent = inputField.value;
-    }
+  if (inputField.value === "") {
+    outputField.textContent = "Output";
+  } else {
+    outputField.textContent = inputField.value;
+  }
 });
 
 
@@ -51,4 +54,19 @@ italic.addEventListener("click", () => {
 underline.addEventListener("click", () => {
   outputField.style.textDecoration =
     outputField.style.textDecoration === "underline" ? "none" : "underline";
+});
+
+
+clear.addEventListener("click", () => {
+  inputField.value = "";
+  outputField.textContent = "Output";
+
+  outputField.style.fontWeight = "normal";
+  outputField.style.fontStyle = "normal";
+  outputField.style.textDecoration = "none";
+});
+
+
+copy.addEventListener("click", () => {
+  navigator.clipboard.writeText(outputField.textContent);
 });

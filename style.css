@@ -26,6 +26,25 @@ body {
     margin-bottom: 40px;
 }
 
+.input-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.input-box .clear {
+    margin-left: 10px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
+
 .input-container input {
     width: 80%;
     padding: 10px;
