@@ -12,6 +12,8 @@ const underline = document.querySelector(".underline");
 const clear = document.querySelector(".clear");
 const copy = document.querySelector(".copy");
 
+const reset = document.querySelector(".reset");
+const download = document.querySelector(".download");
 
 inputField.addEventListener("input", () => {
   if (inputField.value === "") {
@@ -68,5 +70,37 @@ clear.addEventListener("click", () => {
 
 
 copy.addEventListener("click", () => {
-  navigator.clipboard.writeText(outputField.textContent);
+  navigator.clipboard.writeText(outputField.innerHTML);
+});
+
+reset.addEventListener("click", () => {
+  outputField.textContent = inputField.value;
+  outputField.style.fontWeight = "normal";
+  outputField.style.fontStyle = "normal";
+  outputField.style.textDecoration = "none";
+});
+
+download.addEventListener("click", () => {
+  const text = outputField.outerHTML;
+  const content = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Formatted Text</title>
+</head>
+<body>
+  <p>${text}</p>
+</body>
+</html>
+`;
+
+  const file = new Blob([content], {
+    type: "text/html"
+  });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(file);
+  link.download = "formatted-text.html";
+  link.click();
+  URL.revokeObjectURL(link.href);
 });
