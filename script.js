@@ -69,8 +69,33 @@ clear.addEventListener("click", () => {
 });
 
 
-copy.addEventListener("click", () => {
-  navigator.clipboard.writeText(outputField.innerHTML);
+copy.addEventListener("click", async () => {
+  const text = outputField.textContent;
+
+  const html = `
+    <span style="
+      font-weight: ${outputField.style.fontWeight};
+      font-style: ${outputField.style.fontStyle};
+      text-decoration: ${outputField.style.textDecoration};
+    ">${text}</span>
+  `;
+
+  try {
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        "text/plain": new Blob([text], {
+          type: "text/plain"
+        }),
+        "text/html": new Blob([html], {
+          type: "text/html"
+        })
+      })
+    ]);
+
+    alert("Formatted text copied!");
+  } catch (error) {
+    console.error("Copy failed:", error);
+  }
 });
 
 reset.addEventListener("click", () => {
