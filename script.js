@@ -15,6 +15,20 @@ const copy = document.querySelector(".copy");
 const reset = document.querySelector(".reset");
 const download = document.querySelector(".download");
 
+const themeBtn = document.querySelector('#theme-btn');
+
+themeBtn.addEventListener('click', function () {
+
+  document.body.classList.toggle('dark-mode');
+
+  if (document.body.classList.contains('dark-mode')) {
+    themeBtn.innerText = '☀️ Light Mode';
+  } else {
+    themeBtn.innerText = '🌙 Dark Mode';
+  }
+
+});
+
 inputField.addEventListener("input", () => {
   if (inputField.value === "") {
     outputField.textContent = "Output";

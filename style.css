@@ -93,3 +93,43 @@ p {
 .italic {
     font-style: italic;
 }
+
+body {
+    transition: 1.5s;
+}
+
+.container {
+    transition: 1.5s;
+}
+
+body.dark-mode {
+    background-color: #121212;
+}
+
+body.dark-mode .container {
+    background-color: #222;
+}
+
+body.dark-mode p {
+    background-color: #333;
+    color: #fff;
+    border-color: #777;
+}
+
+body.dark-mode .input-box input,
+body.dark-mode .input-container input {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #777;
+}
+
+body.dark-mode button {
+    background-color: #fff;
+    color: #000;
+}
+
+#theme-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
