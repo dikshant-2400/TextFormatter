@@ -1,5 +1,6 @@
 const inputField = document.querySelector("#input-field");
 const outputField = document.querySelector("#output-field");
+const container = document.querySelector('.container');
 
 const uppercase = document.querySelector(".uppercase");
 const lowercase = document.querySelector(".lowercase");
@@ -16,6 +17,12 @@ const reset = document.querySelector(".reset");
 const download = document.querySelector(".download");
 
 const themeBtn = document.querySelector('#theme-btn');
+const colorPicker = document.querySelector('#color');
+
+
+colorPicker.addEventListener('input', function () {
+  container.style.backgroundColor = this.value;
+});
 
 themeBtn.addEventListener('click', function () {
 
