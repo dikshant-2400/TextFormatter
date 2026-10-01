@@ -6,7 +6,7 @@
 
 body {
     text-align: center;
-    background-color: #cceeff;
+    background-color: #6d91a3;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -16,28 +16,42 @@ body {
 
 .color-picker {
     position: absolute;
-    top: 20px;
-    right: 150px;
+    top: 80px;
+    right: 10px;
 }
 
 .color-picker label {
-    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgb(60, 59, 60);
+    color: #fff;
+    padding: 10px 20px;
     font-family: sans-serif;
     font-weight: bold;
+    font-size: 13.33px;
+    cursor: pointer;
+    user-select: none;
 }
 
-.color-picker input {
-    width: 45px;
-    height: 45px;
+.color-picker input[type="color"] {
+    width: 24px;
+    height: 24px;
     padding: 0;
     border: none;
-    border-radius: 50%;
+    border-radius: 4px;
+    background: none;
     cursor: pointer;
+}
+
+body.dark-mode .color-picker label {
+    background-color: #fff;
+    color: #000;
 }
 
 .container {
     padding: 6rem;
-    background: #cceeff;
+    background: #6d91a3;
 }
 
 .container h2 {
@@ -86,7 +100,7 @@ button {
 p {
     width: 400px;
     height: 400px;
-    background: #cceeff;
+    background: rgb(38, 201, 193);
     color: #000;
     height: 50px;
     border: 1px solid #555;
@@ -128,7 +142,7 @@ body.dark-mode {
 }
 
 body.dark-mode .container {
-    background-color: #222;
+    background-color: #121212;
 }
 
 body.dark-mode p {

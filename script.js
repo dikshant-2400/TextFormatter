@@ -19,21 +19,28 @@ const download = document.querySelector(".download");
 const themeBtn = document.querySelector('#theme-btn');
 const colorPicker = document.querySelector('#color');
 
-
+let userChosenColor = colorPicker.value;
 colorPicker.addEventListener('input', function () {
-  container.style.backgroundColor = this.value;
+  userChosenColor = this.value;
+
+  if (!document.body.classList.contains('dark-mode')) {
+    document.body.style.backgroundColor = userChosenColor;
+    container.style.backgroundColor = userChosenColor;
+  }
 });
 
 themeBtn.addEventListener('click', function () {
-
   document.body.classList.toggle('dark-mode');
 
   if (document.body.classList.contains('dark-mode')) {
     themeBtn.innerText = '☀️ Light Mode';
+    document.body.style.backgroundColor = '';
+    container.style.backgroundColor = '';
   } else {
     themeBtn.innerText = '🌙 Dark Mode';
+    document.body.style.backgroundColor = userChosenColor;
+    container.style.backgroundColor = userChosenColor;
   }
-
 });
 
 inputField.addEventListener("input", () => {
